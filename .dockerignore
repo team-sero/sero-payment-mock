@@ -1,0 +1,9 @@
+.git
+.venv
+venv
+__pycache__
+*.py[cod]
+.vscode
+.idea
+compose.yaml
+README.md

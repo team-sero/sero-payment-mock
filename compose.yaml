@@ -1,0 +1,15 @@
+# 로컬 개발용 payment-mock. order-api는 http://127.0.0.1:8090 으로 부른다.
+#   시작(코드를 바꿨으면 이미지도 다시 빌드): docker compose up -d --build
+#   중지: docker compose down
+services:
+  payment-mock:
+    build: .
+    image: sero-payment-mock:dev
+    ports:
+      - "8090:8090"
+    restart: unless-stopped  # Docker Desktop을 다시 켜도 알아서 뜬다
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/healthz', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 3

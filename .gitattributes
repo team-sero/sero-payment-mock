@@ -1,0 +1,3 @@
+# 컨테이너와 쿠버네티스(리눅스)에서 돌 파일이라 줄바꿈을 LF로 고정
+* text=auto eol=lf
+*.bat text eol=crlf
